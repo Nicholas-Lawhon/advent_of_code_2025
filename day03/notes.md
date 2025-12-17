@@ -24,3 +24,9 @@
 - The problem is, I'm not sure how I check each suseqent number in the window without tracking 12 different variables
 - I could make a first pass ending at len(nums) - 13, and use that idx to start the next iteration
 - - But then I would still need a way to track the other numbers
+
+- What if I sum the numbers in my 12 digit window as it slides?
+- - The problem is how to skip digits and expand the window non-sequentially 
+
+- I could use a while loop to continously iterate until all possible combinations have been searched
+- 

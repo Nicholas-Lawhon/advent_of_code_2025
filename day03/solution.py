@@ -47,7 +47,35 @@ def part01(data):
     return ans
 
 
+def part02(data):
+    ans = 0
+    add_to_ans = 0
+
+    for nums in data:
+        add_to_ans = ""
+        idx_start = 0
+
+        while len(add_to_ans) < 12:
+            idx_end = len(nums) - (12 - len(add_to_ans)) + 1
+            highest_num = 0
+            highest_idx = 0
+
+            for i in range(idx_start, idx_end):
+                if nums[i] > highest_num:
+                    highest_num = nums[i]
+                    highest_idx = i
+
+            idx_start = highest_idx + 1
+            add_to_ans = add_to_ans + str(highest_num)
+
+        ans += int(add_to_ans)
+            
+    return ans
+
+
+
 if __name__ == "__main__":
     data = parse_input()
 
     print("Part 1:", part01(data))
+    print("Part 2:", part02(data))
