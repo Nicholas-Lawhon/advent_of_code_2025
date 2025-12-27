@@ -37,11 +37,27 @@ def part01(fresh_ids, available_ids):
     return answer
 
 
-def part02(data):
-    pass
+def part02(fresh_id_ranges):
+    fresh_id_ranges.sort()
+
+    current_start, current_end = fresh_id_ranges[0]
+    total_fresh_ids_count = 0
+
+    for start, end in fresh_id_ranges[1:]:
+        if start <= current_end + 1:
+            current_end = max(current_end, end)
+        else:
+            total_fresh_ids_count += (current_end - current_start + 1)
+            current_start = start
+            current_end = end
+
+    total_fresh_ids_count += (current_end - current_start + 1)
+
+    return total_fresh_ids_count
 
 
 if __name__ == "__main__":
     fresh_ids, available_ids = parse_input()
     
     print("Part 01:", part01(fresh_ids, available_ids))
+    print("Part 02:", part02(fresh_ids))
