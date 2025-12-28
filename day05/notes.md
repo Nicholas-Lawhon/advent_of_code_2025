@@ -24,3 +24,9 @@
 - - Then we really don't even need to worry about overlaps
 - - - But we need to figure out how to unpack the ranges
 - - - - Maybe we can use range(start, end + 1)
+
+- It quickly became apparently that unpacking number ranges this long will NOT work
+- - Instead, we need to keep a list of tuple ranges, and just add on to overlapping ranges
+- - Ex: we have (2, 10) and (6, 15), the new range would be (2, 15)
+- - - At the end, we can sum the difference between all tuples for a total count of unique IDs
+- * It's important than we sort the list before we start this process *
