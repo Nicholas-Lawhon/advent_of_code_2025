@@ -35,8 +35,22 @@ def part01(row1, row2, row3, row4, op_row):
     return total_sum
 
 
-def part02(data):
-    pass
+def part02(row1, row2, row3, row4, op_row):
+    total_sum = 0
+    operations = {
+        "+": operator.add,
+        "*": operator.mul
+    }
+
+    for i in range(len(op_row) - 1, 0 - 1, -1):
+        # We need to iterate once to add the padding
+        # Ensure we follow the operation rules for .ljust or .rjust
+
+        # We then iterate again and apply the operations
+        # Will have to build our current_num vertically, using a str var
+        # We then add the built number to a calculate var
+        # We might need to check max(len(num1...)) to know when to stop building (Think more on it)
+
 
 
 if __name__ == "__main__":
